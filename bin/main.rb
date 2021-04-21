@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
-require_relative '../lib/initialize'
+require_relative '../lib/intialize'
 
-check_linters = Linters.new(gets.chomp.to_s)
+check_linters = Linters.new(bin / style.css)         
 
 puts check_linters.check_pass
