@@ -36,17 +36,24 @@ module Stylint
     @errors << "#{'WARNING'.yellow} :Line #{num} should end with semi-colon (';')\n"
   end
 
-  # def missing_grid_check(line, num)
-  #   @errors << "#{'WARNING'.yellow} :Line #{num} All strings must define at least one cell token.\n" if line.include?("")
-  # end
+  def missing_grid_check(line, num)
+    @errors << "#{'WARNING'.yellow} :Line #{num} All strings must define at least one cell token.\n" if line.include?('grid-template-areas: ') && line.include?("")
+  end
 
   def invalid_hexcode_check(line, num)
     @errors << "#{'WARNING'.yellow} :Line #{num} wrong hexcode" if line.include?('#00' || '#fff1az' || '#12345aa')
   end
 
-  def duplicate_font_check(line,num)
-
+  def font_check (line,num)
+   return unless line.include?('font-weight') && !line.match(/\d/i)
+   @errors << "The font weight should be a number on the line number #{num}".colorize(:red)
   end
+
+  # def duplicate_font_check(line,num)
+  #   @errors << "#{'WARNING'.yellow} :Line #{num} Dublicate font" if line.each{|ele1,ele| ele1 == ele}
+  #   # each { |ele1,ele2| ele1 == ele2}
+  #   end
+
   # def capital_check(line, num)
   #  @errors << "Replace capital letters with lowercase on line #{num}"
   #  .colorize(:light_red) if line =~ /[A-Z]/

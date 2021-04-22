@@ -20,6 +20,8 @@ class Linters
       space_after_colon(line,num)
       semicolon_end_check(line, num)
       invalid_hexcode_check(line, num)
+      missing_grid_check(line, num)
+      font_check(line,num)
 
     end
 
