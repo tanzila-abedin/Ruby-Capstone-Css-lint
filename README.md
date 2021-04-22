@@ -1,7 +1,7 @@
 # Ruby-Capstone-Css-lint
  An Unique project written in Ruby that detects style errors within the CSS file, and provides detailed feedback on how to rectify the errors. 
 
- ![image](../assets/terminal-ss.png)
+ ![image](terminal-ss.png)
 
 ## Built With
 - Ruby
