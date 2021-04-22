@@ -1,4 +1,4 @@
-require_relative('../lib/stylint') 
+require_relative('../lib/stylint')
 require 'colorize'
 
 class Linters
@@ -17,14 +17,13 @@ class Linters
       selectors_newline_check(line, num)
       double_braces_check(line, num)
       double_bracket_check(line, num)
-      space_after_colon(line,num)
+      space_after_colon(line, num)
       semicolon_end_check(line, num)
       invalid_hexcode_check(line, num)
       missing_grid_check(line, num)
-      font_check(line,num)
-
+      font_check(line, num)
     end
 
-     @errors.length.zero? ? @errors.push(" No Errors were found, You have passed all the checks SUCCESSFULLY!!. ") : @errors.sort {|ele1, ele2| ele2 <=> ele1 }
+    @errors.length.zero? ? @errors.push(' No Errors were found, You have passed all the checks SUCCESSFULLY!!. ') : @errors.sort { |ele1, ele2| ele2 <=> ele1 }
   end
 end

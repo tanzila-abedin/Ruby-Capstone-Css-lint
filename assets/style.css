@@ -16,7 +16,7 @@ h2 {
    margin-bottom: 0;
 }}
 
-navbar {
+nav {
   width:7rem;
 }
 
@@ -29,7 +29,7 @@ p {
 }
 
 
-p {
+section {
   font: pink
   }
 
@@ -43,10 +43,7 @@ a {
 }
 
 
-a { 
+article { 
   font-weight: fgejkh; 
 }
 
-section {
-
-}
