@@ -18,6 +18,7 @@ class Linters
       double_braces_check(line, num)
       double_bracket_check(line, num)
       space_after_colon(line,num)
+      semicolon_end_check(line, num)
 
 
     end

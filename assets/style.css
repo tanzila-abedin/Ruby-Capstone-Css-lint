@@ -25,5 +25,10 @@ img {
 }
 
 p {
-     color: rgb(170, 130, 69));
+     color: rgb(170, 130, 69)); 
 }
+
+
+p {
+  font: pink
+  }
