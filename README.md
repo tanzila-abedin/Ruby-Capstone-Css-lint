@@ -1,8 +1,7 @@
 # Ruby-Capstone-Css-lint
+ An Unique project written in Ruby that detects style errors within the CSS file, and provides detailed feedback on how to rectify the errors. 
 
-
-## Intructions
-
+ ![image](../assets/terminal-ss.png)
 
 ## Built With
 - Ruby
@@ -40,6 +39,11 @@ Clone repository from github to your local drive by following these steps:
 - Go to bin the folder by running `cd bin`** in the terminal 
 - To start the linter by typing ```ruby main.rb``` in the terminal**
 - Enter the file path '../assets/style.css'
+
+## Run Test
+To test the code run the following commands on your terminal from the root directory:
+  - gem install rspec
+  - rspec
 
 ## Implemented Checks
 - Checks for camelcasing for  two or more word name for selectors
