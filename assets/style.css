@@ -32,3 +32,15 @@ p {
 p {
   font: pink
   }
+
+/* .item1 {
+  grid-area: myarea;
+}
+.grid-container {
+  display: grid;
+  grid-template-areas: "";
+} */
+
+a { 
+  color: #00; 
+}

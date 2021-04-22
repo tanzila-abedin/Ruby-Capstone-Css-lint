@@ -19,7 +19,7 @@ class Linters
       double_bracket_check(line, num)
       space_after_colon(line,num)
       semicolon_end_check(line, num)
-
+      invalid_hexcode_check(line, num)
 
     end
 

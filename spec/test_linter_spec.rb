@@ -66,5 +66,19 @@ describe Linters do
                expect(result).to eql(nil && false)
           end
      end
+
+     describe 'semicolon_end_check' do
+          context 'when semi-colon is missing ' do
+               it 'check for missing semi-colon' do
+                    result = check.send(:semicolon_end_check, ';',33)
+                    expect(result).not_to eql(['put endimh semi-colon on the line number 33 '])
+               end
+               it 'check for semi-colon' do
+                    result = check.send(:semicolon_end_check, ';',33)
+                    expect(result).to eql(nil && false)
+               end
+          end
+          
+     end
     
 end

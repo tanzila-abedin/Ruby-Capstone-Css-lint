@@ -26,7 +26,7 @@ module Stylint
   def space_after_colon(line, number)
     return unless line.include?(':')
     miss = line.split(':')[1]
-    @errors << "#{'ERROR'.red} : a single SPACE expected after the colon on line #{number}\n" if miss[0] != ' '
+    @errors << "#{'ERROR'.red} : A single SPACE expected after the colon on line #{number}\n" if miss[0] != ' '
   end
 
   # End all declarations with a semi-colon.
@@ -36,8 +36,17 @@ module Stylint
     @errors << "#{'WARNING'.yellow} :Line #{num} should end with semi-colon (';')\n"
   end
 
-  # def declaration_newline_check; end
+  # def missing_grid_check(line, num)
+  #   @errors << "#{'WARNING'.yellow} :Line #{num} All strings must define at least one cell token.\n" if line.include?("")
+  # end
 
+  def invalid_hexcode_check(line, num)
+    @errors << "#{'WARNING'.yellow} :Line #{num} wrong hexcode" if line.include?('#00' || '#fff1az' || '#12345aa')
+  end
+
+  def duplicate_font_check(line,num)
+
+  end
   # def capital_check(line, num)
   #  @errors << "Replace capital letters with lowercase on line #{num}"
   #  .colorize(:light_red) if line =~ /[A-Z]/
@@ -49,9 +58,5 @@ module Stylint
   #   @errors << "Replace the capital letters with lower case letters on the line  #{num}".colorize(:light_red) 
   #   if line =~ /^[a-z0-9_\-]+$/
   # end
-
-  # Include one space after the colon for each declaration
-
-  # End all declarations with a semi-colon.
 
 end
