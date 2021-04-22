@@ -1,32 +1,29 @@
 module Stylint
-  def declaration_newline_check; end
+  # def declaration_newline_check; end
 
-  def capital_check(line, num)
-    if line =~ /A-Z/
-      @errors.push("Replace capital letters with lowercase on line #{num}")
-        .colorize[:red]
-    end
+  # def capital_check(line, num)
+  #  @errors << "Replace capital letters with lowercase on line #{num}"
+  #  .colorize(:light_red) if line =~ /[A-Z]/
+  # end
+
+  # Selectors must be on a new line, multiple selectors on a line are not allowed. WORKING!!!!!!!!!!!!!
+  def selectors_newline_check(line, num) 
+  # return unless line.count('word') > 1 #is not
+    @errors << "Selectors must be on a new line, avoid using multiple line #{num}".colorize(:light_red) if line.start_with?('#' || '.')
   end
 
-  # Selectors must be on a new line, multiple selectors on a line are not allowed.
-  # def selectors_newline_check(line, _num)
-  #   return unless line.count('word') > 1 #is not
-
-  #   @errors.push('Selectors must be on a new line, avoide using multiple')
-  # end
-
-  # # Must use hyphens to separate words, not underscores or camel casing.
-  # def selectors_hyphen_check(line, num)
-  #   @errors.push("use hyphens to separate words, not underscores or camel casing on line#{num}")
-  #     .colorize(:light_red) if line =~ /([A-Z]*_?[A-Z]*)*/ || line =~ /^[A-Z]\w+(?:[A-Z]\w+){1,}/x
-  # end
+  # Must use hyphens to separate words, not underscores or camel casing.  WORKING!!!!!!!!!!!!!!!!
+  def selectors_hyphen_check(line, num)
+    @errors << "use hyphens to separate words, not underscore or camel casing on line #{num}".colorize(:light_red) if line =~  /([A-Z][a-z0-9]+){2,}/
+    # /([A-Z]*_?[A-Z]*)*/ 
+    # || line =~ /^[A-Z]\w+(?:[A-Z]\w+){1,}/x
+  end
 
   # # Lowercase all hex values, e.g. #eee.
   # def hex_lowcase_check(line, num)
-  #   return unless  line.include?.gsub("^[a-z0-9_\-]+$") #return if not
-
-  #   @errors.push("Replace the capital letters with lower case letters on the line  #{num}")
-  #     .colorize(:light_red)
+  #   return unless  line.include?.gsub(/^[a-z0-9_\-]+$/) #return if not
+  #   @errors << "Replace the capital letters with lower case letters on the line  #{num}".colorize(:light_red) 
+  #   if line =~ /^[a-z0-9_\-]+$/
   # end
 
   # def braces_check(line, num)
@@ -57,5 +54,9 @@ module Stylint
   #   return unless strip.end_with?(';')
 
   #   @errors.push("#{'ERROR'.red} :Line #{num} should end with (';') }\n")
+  # end
+  # def capital_check(line, num)
+  #  @errors << "Replace capital letters with lowercase on line #{num}"
+  #  .colorize(:light_red) if line =~ /[A-Z]/
   # end
 end

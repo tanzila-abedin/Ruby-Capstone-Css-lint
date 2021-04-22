@@ -1,4 +1,5 @@
-require_relative('../lib/stylint')
+require_relative('../lib/stylint') 
+require 'colorize'
 
 class Linters
   include Stylint
@@ -10,17 +11,14 @@ class Linters
 
   def check_pass
     num = 0
-    File.readlines(@file_path).each do |_line|
+    File.readlines(@file_path).each do |line|
       num += 1
-      capital_check(line, num)
+      selectors_hyphen_check(line, num)
+      selectors_newline_check(line, num)
+
+
     end
 
-    if @errors.length.zero?
-      @errors.push("All checks have succefully passed ! No errors detected. ").colorize(:light_green)
-    else
-      @errors.sort do|ele1, ele2| 
-       ele2 <=> ele1 
-      end
-    end
+     @errors.length.zero? ? @errors.push(" No Errors were found, You have passed all the checks SUCCESSFULLY!!. ") : @errors.sort {|ele1, ele2| ele2 <=> ele1 }
   end
 end
