@@ -71,7 +71,7 @@ describe Linters do
           context 'when semi-colon is missing ' do
                it 'check for missing semi-colon' do
                     result = check.send(:semicolon_end_check, ';',33)
-                    expect(result).not_to eql(['put endimh semi-colon on the line number 33 '])
+                    expect(result).not_to eql(['put ending semi-colon on the line number 33 '])
                end
                it 'check for semi-colon' do
                     result = check.send(:semicolon_end_check, ';',33)
@@ -79,6 +79,17 @@ describe Linters do
                end
           end
           
+     end
+
+     describe 'invalid_hexcode_check' do
+          it 'checks for invalid hexcode' do
+               result = check.send(:invalid_hexcode_check,'black'||' rgb(0, 0, 0)'||'rgba(0, 0, 0, 1)',42 )
+               expect(result).not_to eql(['put valid color name or hexcode'])
+          end
+          it 'checks for no invalid hexcode' do
+               result = check.send(:invalid_hexcode_check,'black'||' rgb(0, 0, 0)'||'rgba(0, 0, 0, 1)',42 )
+               expect(result).to eql(nil && false)
+          end
      end
     
 end
