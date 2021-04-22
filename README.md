@@ -206,13 +206,6 @@ a {
 
 ```
 
-## Testing
-To test the code run the following commands on your terminal from the root directory:
-  - gem install rspec
-  - rspec
-
-
-
 ## Authors
 
 👤 **Tanzila**
