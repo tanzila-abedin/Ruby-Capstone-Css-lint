@@ -49,8 +49,6 @@ Clone repository from github to your local drive by following these steps:
 - Checks for space after colon for each declaration
 - Checks for a semicolon at the end of each declaration
 - checks for use of invalid hexcode
-- checks for missing grid template area input
-- check for valid font-weight input
 
  ### Example Checks
 ### ***Selector name check***
@@ -164,102 +162,44 @@ nav {
 
 > **Bad code:**
 ```
-.section{
-  font:1rem;
-}
-
-```
-
-> **Good code:**
-
-```
-.section {
-  font: 1rem;
-}
-
-```
-
-### ***Bracket check***
-*- Opening bracket '{' should be on seperate line from closing bracket and code*
-
-> **Bad code:**
-```
-.section {font-size: 2rem;}
-
-
-```
-
-> **Good code:**
-
-```
-.section {
-font-size: 2rem;
-}
-
-```
-
-### ***Bracket check end***
-*- The closing bracket is always on a seperate line on its own*
-
-> **Bad code:**
-```
-.top -footer {
-  font: pink;
-}.bottom-footer
-```
-
-> **Good code:**
-
-```
-.top-footer {
-  font: pink;
-}
-
-.bottom-footer
-```
-
-### ***Empty space check***
-*- There should be no trailing spaces at the end of lines*
-
-> **Bad code:**
-```
-.social-icons a { 
-  padding: 8rem;
-  color: black;
-  background-color: #11111115;
-  border: 1rem solid #fff;
-  border-radius: 50em;
-}
-```
-
-> **Good code:**
-
-```
-.social-icons a {
-  padding: 8rem;
-  color: black;
-  background-color: #11111115;
-  border: 1rem solid #fff;
-  border-radius: 50em;
-}
-```
-
-### ***Ending check check ***
-*- The end of a line with a colon should have a semi-colon ';'*
-
-> **Bad code:**
-```
-p {
+section {
   font: pink
   }
+
 ```
 
 > **Good code:**
 
 ```
-p {
+section {
   font: pink;
+  }
+
+```
+
+### ***Invalid Hex-code***
+*- There should be valid name of colors or hexcode *
+
+> **Bad code:**
+```
+a { 
+  color: #00; 
 }
+
+
+```
+
+> **Good code:**
+
+```
+a {
+  font: pink;
+  }
+
+a {
+  font: #eee;
+  }
+
 ```
 
 ## Testing
