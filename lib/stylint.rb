@@ -1,12 +1,5 @@
 module Stylint
-  # def declaration_newline_check; end
-
-  # def capital_check(line, num)
-  #  @errors << "Replace capital letters with lowercase on line #{num}"
-  #  .colorize(:light_red) if line =~ /[A-Z]/
-  # end
-
-  # Selectors must be on a new line, multiple selectors on a line are not allowed. WORKING!!!!!!!!!!!!!
+   # Selectors must be on a new line, multiple selectors on a line are not allowed. WORKING!!!!!!!!!!!!!
   def selectors_newline_check(line, num) 
   # return unless line.count('word') > 1 #is not
     @errors << "Selectors must be on a new line, avoid using multiple line #{num}".colorize(:light_red) if line.start_with?('#' || '.')
@@ -18,6 +11,12 @@ module Stylint
     # /([A-Z]*_?[A-Z]*)*/ 
     # || line =~ /^[A-Z]\w+(?:[A-Z]\w+){1,}/x
   end
+  # def declaration_newline_check; end
+
+  # def capital_check(line, num)
+  #  @errors << "Replace capital letters with lowercase on line #{num}"
+  #  .colorize(:light_red) if line =~ /[A-Z]/
+  # end
 
   # # Lowercase all hex values, e.g. #eee.
   # def hex_lowcase_check(line, num)
@@ -26,14 +25,12 @@ module Stylint
   #   if line =~ /^[a-z0-9_\-]+$/
   # end
 
-  # def braces_check(line, num)
-  #   strip = line.delete("\n")
-  #   return unless (line.include?('{') && !strip.end_with?('{')) || (line.include?('}') && !strip.end_with?('}')) # if not include
+  def double_braces_check(line, num)
+    # strip = line.delete("\n")
+    @errors << "#{'ERROR'.red} :Line #{num} Double OPENING or CLOSING braces detected \n"  if line.include?('{{') || line.include?('}}') 
+  end
 
-  #   @errors.push("#{'ERROR'.red} :Line #{num} missing an opening OR closing {braces}, put closing braces '}' at the end of a sentence  on  a seperate line\n")
-  # end
-
-  # def bracket_check(line, num)
+  # def bracket_check(line, num)cl
   #   strip = line.delete("\n")
   #   return unless (line.include?('(') && !strip.end_with?('(')) || (line.include?(')') && !strip.end_with?(')'))
 

@@ -15,6 +15,7 @@ describe Linters do
                expect(result).to eql(nil && false)
           end
      end
+     end
 
      describe 'selectors_newline_check' do
           context 'when there are multiple selectors' do
@@ -22,15 +23,24 @@ describe Linters do
                     result = check.send(:selectors_newline_check,('#' || '.'), 7 )
                     expect(result).not_to eq(['start each selector on a new line'])
                end
-                it 'check multiple selectors not the same line' do
+                it 'check when  multiple selectors not the same line' do
                     result = check.send(:selectors_newline_check,('#' && '.'), 7 )
                      expect(result).to eql(nil && false)
                end
           end
      end
-         
+
+     describe 'double_braces_check' do
+          context 'when double braces are found' do
+               it 'check for double OPENING or CLOSING braces' do
+                    result = check.send(:double_braces_check,('{{' || '}}'),17)
+                    expect(result).not_to eq(['There should one OPENING and CLOSING braces'])
+               end
+               it 'check when no double OPENING or CLOSING braces found' do
+                    result = check.send(:double_braces_check,('{' || '}'),11)
+                    expect(result).to eql(nil && false)
+               end
+          end
      end
-
-
     
 end

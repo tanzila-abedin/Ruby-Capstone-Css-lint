@@ -15,6 +15,7 @@ class Linters
       num += 1
       selectors_hyphen_check(line, num)
       selectors_newline_check(line, num)
+      double_braces_check(line, num)
 
 
     end
