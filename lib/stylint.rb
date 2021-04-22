@@ -11,6 +11,21 @@ module Stylint
     # /([A-Z]*_?[A-Z]*)*/ 
     # || line =~ /^[A-Z]\w+(?:[A-Z]\w+){1,}/x
   end
+
+  def double_braces_check(line, num)
+    # strip = line.delete("\n")
+    @errors << "#{'ERROR'.red} :Line #{num} Double OPENING or CLOSING braces detected \n"  if line.include?('{{') || line.include?('}}') 
+  end
+
+  def double_bracket_check(line, num)
+   @errors << "#{'ERROR'.red} :Line #{num} Double OPENING or CLOSING bracket detected \n"  if line.include?('((') || line.include?('))') 
+  end
+
+  def colon_space_check(line, number)
+    return unless line.include?(':')
+    miss = line.split(':')[1]
+    @errors << "#{'ERROR'.red} :Add a Space after the colon on the line number #{number}\n" if miss[0] != ' '
+  end
   # def declaration_newline_check; end
 
   # def capital_check(line, num)
@@ -25,25 +40,13 @@ module Stylint
   #   if line =~ /^[a-z0-9_\-]+$/
   # end
 
-  def double_braces_check(line, num)
-    # strip = line.delete("\n")
-    @errors << "#{'ERROR'.red} :Line #{num} Double OPENING or CLOSING braces detected \n"  if line.include?('{{') || line.include?('}}') 
+  # Include one space after the colon for each declaration
+  
+  def space_after_colon(line, number)
+    return unless line.include?(':')
+    miss = line.split(':')[1]
+    @errors << "#{'ERROR'.red} : a single SPACE expected after the colon on line #{number}\n" if miss[0] != ' '
   end
-
-  # def bracket_check(line, num)cl
-  #   strip = line.delete("\n")
-  #   return unless (line.include?('(') && !strip.end_with?('(')) || (line.include?(')') && !strip.end_with?(')'))
-
-  #   @errors.push("#{'ERROR'.red}  :Line #{num} missing an OPENING OR CLOSING (bracket), put closing bracket ')' at the end of a sentence  on  a seperate line\n")
-  # end
-
-  # # Include one space after the colon for each declaration
-  # def colon_space_check
-  #   return unless line.include?(':')
-
-  #   comment = line.split(':')[1]
-  #   @errors.push("Space must be after the colon on the line number #{num}").colorize(:red) if comment[0] != ' '
-  # end
 
   # # End all declarations with a semi-colon.
   # def semicolon_end_check(line, num)
