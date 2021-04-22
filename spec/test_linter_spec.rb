@@ -84,10 +84,21 @@ describe Linters do
      describe 'invalid_hexcode_check' do
           it 'checks for invalid hexcode' do
                result = check.send(:invalid_hexcode_check,'black'||' rgb(0, 0, 0)'||'rgba(0, 0, 0, 1)',42 )
-               expect(result).not_to eql(['put valid color name or hexcode'])
+               expect(result).not_to eql(['put valid color name or hexcode on line 42'])
           end
           it 'checks for no invalid hexcode' do
                result = check.send(:invalid_hexcode_check,'black'||' rgb(0, 0, 0)'||'rgba(0, 0, 0, 1)',42 )
+               expect(result).to eql(nil && false)
+          end
+     end
+
+     describe 'missing_grid_check' do
+          it 'checks missing grid template area' do
+               result = check.send(:missing_grid_check, "a a a" && "b b b",38)
+               expect(result).not_to eql(['put ending semi-colon on the line number 33 '])
+          end
+          it 'checks no missing grid template area' do
+               result = check.send(:missing_grid_check, "a a a" && "b b b",38)
                expect(result).to eql(nil && false)
           end
      end
