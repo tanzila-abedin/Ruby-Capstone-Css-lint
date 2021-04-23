@@ -1,0 +1,49 @@
+
+
+.IdeaGem {
+     padding: 0;
+}
+
+#idea .gem {
+     padding: 0;
+}
+
+h1 {
+   margin: 0;
+}
+
+h2 {
+   margin-bottom: 0;
+}}
+
+nav {
+  width:7rem;
+}
+
+img {
+     background-color: rgb(143, 112, 112);
+}
+
+p {
+     color: rgb(170, 130, 69)); 
+}
+
+
+section {
+  font: pink
+  }
+
+.grid-container {
+  display: grid;
+  grid-template-areas: "";
+}
+
+a { 
+  color: #00; 
+}
+
+
+article { 
+  font-weight: fgejkh; 
+}
+
