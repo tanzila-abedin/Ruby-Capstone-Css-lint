@@ -1,10 +1,10 @@
 module Stylint
   def selectors_newline_check(line, num)
-    @errors << "Line #{num}: Selectors must be on a new line, avoid using multiple".colorize(:light_red) if line.start_with?('#' || '.')
+    @errors << "Line #{num}: Selectors must be on a new line, avoid using multiple selectors on the same line".colorize(:light_red) if line.start_with?('#') && line.include?('.')
   end
 
   def selectors_hyphen_check(line, num)
-    @errors << "Line #{num} : use hyphens to separate words, not underscore or camel casing on line".colorize(:light_red) if line =~ /([A-Z][a-z0-9]+){2,}/
+    @errors << "Line #{num} : use hyphens to separate words, not underscore or camel casing.".colorize(:light_red) if line =~ /([A-Z][a-z0-9]+){2,}/
   end
 
   def double_braces_check(line, num)
@@ -29,7 +29,7 @@ module Stylint
   end
 
   def missing_grid_check(line, num)
-    @errors << "#{'WARNING'.yellow} :Line #{num} All strings must define at least one cell token.\n" if line.include?('grid-template-areas: ') && line.include?('')
+    @errors << "#{'WARNING'.yellow} :Line #{num} All strings must define at least one cell token(valid grid-template-area name).\n" if line.include?('grid-template-areas:') && line.match( "\".*\"") 
   end
 
   def invalid_hexcode_check(line, num)
