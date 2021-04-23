@@ -8,11 +8,11 @@ module Stylint
   end
 
   def double_braces_check(line, num)
-    @errors << "#{'ERROR'.red} :Line #{num}: Double OPENING or CLOSING braces detected \n" if line.include?('{{') || line.include?('}}')
+    @errors << "#{'ERROR'.red} :Line #{num}: Double OPENING or CLOSING braces detected. \n" if line.include?('{{') || line.include?('}}')
   end
 
   def double_bracket_check(line, num)
-    @errors << "#{'ERROR'.red} :Line #{num} : Double OPENING or CLOSING bracket detected \n" if line.include?('((') || line.include?('))')
+    @errors << "#{'ERROR'.red} :Line #{num} : Double OPENING or CLOSING bracket detected. \n" if line.include?('((') || line.include?('))')
   end
 
   def space_after_colon(line, num)
@@ -25,7 +25,7 @@ module Stylint
   def semicolon_end_check(line, num)
     return unless line.include?(':') && !line.include?(';')
 
-    @errors << "#{'WARNING'.yellow} :Line #{num} should end with semi-colon (';')\n"
+    @errors << "#{'HINT'.yellow} :Line #{num} should end with semi-colon (';').\n"
   end
 
   def missing_grid_check(line, num)
@@ -41,6 +41,6 @@ module Stylint
   def font_check(line, num)
     return unless line.include?('font-weight') && !line.match(/\d/i)
 
-    @errors << "Line #{num} : The font weight should be a number".colorize(:red)
+    @errors << "#{'HINT'.yellow}: Line #{num} : The font weight should be a number."
   end
 end
