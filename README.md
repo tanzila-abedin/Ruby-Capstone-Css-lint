@@ -167,7 +167,7 @@ nav {
 > **Bad code:**
 ```
 section {
-  font: pink
+  color: pink
   }
 
 ```
@@ -176,7 +176,7 @@ section {
 
 ```
 section {
-  font: pink;
+  color: pink;
   }
 
 ```
@@ -197,11 +197,11 @@ a {
 
 ```
 a {
-  font: pink;
+  font-weight: #0rgj;
   }
 
 a {
-  font: #eee;
+  font-weight: #eee;
   }
 
 ```
