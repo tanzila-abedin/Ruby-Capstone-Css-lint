@@ -38,6 +38,7 @@ Clone repository from github to your local drive by following these steps:
  A file is present for testing
 - Go to bin the folder by running `cd bin`** in the terminal 
 - To start the linter by typing ```ruby main.rb``` in the terminal**
+- 
 
 ## Run Test
 To test the code run the following commands on your terminal from the root directory:

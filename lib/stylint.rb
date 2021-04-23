@@ -29,8 +29,9 @@ module Stylint
   end
 
   def missing_grid_check(line, num)
-   return unless line.include?('grid-template-areas:') && line.match('".*"')
-      @errors << "#{'WARNING'.yellow} :Line #{num} All strings must define at least one cell token(valid grid-template-area name).\n"
+    return unless line.include?('grid-template-areas:') && line.match('".*"')
+
+    @errors << "#{'WARNING'.yellow} :Line #{num} All strings must define at least one cell token(valid grid-template-area name).\n"
   end
 
   def invalid_hexcode_check(line, num)

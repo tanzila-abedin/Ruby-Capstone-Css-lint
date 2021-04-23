@@ -24,6 +24,6 @@ class Linters
       font_check(line, num)
     end
 
-    @errors.length.zero? ? @errors <<' NO Errors were found, You have passed all the checks SUCCESSFULLY!!.'.colorize(:green) : @errors.sort { |ele1, ele2| ele2 <=> ele1 }
+    @errors.length.zero? ? @errors << ' NO Errors were found, You have passed all the checks SUCCESSFULLY!!.'.colorize(:green) : @errors.sort { |ele1, ele2| ele2 <=> ele1 }
   end
 end
