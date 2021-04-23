@@ -37,8 +37,9 @@ Clone repository from github to your local drive by following these steps:
  Kindly save the style sheet file in the assets folder,then follow these steps. 
  A file is present for testing
 - Go to bin the folder by running `cd bin`** in the terminal 
-- To start the linter by typing ```ruby main.rb``` in the terminal**
-- 
+- Start the linter by typing ```ruby main.rb``` in the terminal**
+- On main.rb file type file path '../assets/style.css' to run errors OR
+- For a corrected stylesheet with no error type file path '../assets/noerr.css'
 
 ## Run Test
 To test the code run the following commands on your terminal from the root directory:
