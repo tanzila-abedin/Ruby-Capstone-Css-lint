@@ -48,6 +48,7 @@ Clone repository from github to your local drive by following these steps:
 - Start the linter by typing ```ruby main.rb``` in the terminal**
 - On main.rb file type file path '../assets/style.css' to run errors OR
 - For a corrected stylesheet with no error type file path '../assets/noerr.css'
+- You may add CSS file inside 'assets folder' and change file path name accordingly inside main.rb file(line-5) to run linters. 
 
 ## Run Test
 To test the code run the following commands on your terminal from the root directory:
